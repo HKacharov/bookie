@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Bookie</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    @Html.Partial("_NavBar")
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer class="footer text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <h4 class="text-uppercase">Location</h4>
+                        <p class="lead">
+                            Leicester,
+                            <br />
+                            United Kingdom
+                        </p>
+                    </div>
+                    <div class="col-lg-4">
+                        <h4 class="text-uppercase">Web</h4>
+                        <a class="btn btn-outline-light btn-social mx-1" href="https://github.com/hkacharov"><i class="icon-github icon-4x"></i></a>
+                    </div>
+                    <div class="col-lg-4">
+                        <h4 class="text-uppercase mb-4">Contact Details</h4>
+                        <p class="lead">
+                            Email: hkacharov@gmail.com<br />
+                            Mobile: +44 (0) 777 867 9076
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="copyright text-center text-white">
+            <div class="container"><small>Copyright © Husni Kacharov 2020</small></div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/lib")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

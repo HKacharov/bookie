@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = "Returns";
+}
+
+<h2>Return Books</h2>
+<form id="returnBooks">
+    <div class="form-group">
+        <label>Customer</label>
+        <div class="tt-container">
+            <input id="customer" name="customer" data-rule-validCustomer="true" required type="text" value="" class="form-control" />
+        </div>
+    </div>
+
+    <div id="hiddenDiv" style="display:none" class="form-group">
+        <label>Books to return</label>
+       <select multiple id="booksLoaned"></select>
+    </div>
+
+    <button id="sub" class="btn btn-primary">Submit</button>
+</form>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            var vm = {
+                bookIds: []
+            };
+            var customers = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                remote: {
+                    url: '/api/returns?query=%QUERY',
+                    wildcard: '%QUERY'
+                }
+            });
+
+            $('#customer').typeahead({
+                highLight: true
+            }, {
+                name: 'customers',
+                display: 'name',
+                source: customers
+            }).on("typeahead:select", function (e, customer) {
+                vm.customerId = customer.id;
+                myFunction(customer.id);
+            });
+
+            function myFunction(id) {
+                $.ajax({
+                    url: "/api/loaned?id=" + id,
+                    method: "get"
+                })
+                    .done(function (data) {
+                        $.each(data, function (index, value) {
+                            $("#booksLoaned").append("<option value='" + value.id + "'>" + value.name + "</option>");
+                        });
+                        $("select").selectpicker("refresh");
+                        $("#hiddenDiv").show();
+                    });
+            }
+
+            $.validator.addMethod("validCustomer", function () {
+                return vm.customerId && vm.customerId !== 0;
+            }, "Please select a valid customer.");
+
+            $.validator.addMethod("validBook", function () {
+                return vm.bookIds.length > 0;
+            }, "Please select at least one book from the list.");
+
+            $("#sub").click(function () {
+                var list = $("#booksLoaned").val();
+                $.each(list, function (index, value) {
+                    vm.bookIds.push(value);
+                });
+            });
+
+
+            var validator = $("#returnBooks").validate({
+                submitHandler: function () {
+                    $.ajax({
+                        url: "/api/returns",
+                        method: "post",
+                        data: vm
+                    })
+                    .done(function () {
+                        toastr.success("Returns successfully recorded.");
+
+                        $("#customer").typeahead("val", "");
+                        var groupRemove = $("#booksLoaned");
+                        groupRemove.selectpicker("deselectAll");
+                        groupRemove.find("option").remove();
+                        groupRemove.selectpicker("refresh");
+                        $("#hiddenDiv").hide();
+
+                        vm = { bookIds: [] };
+                        validator.resetForm();
+                        
+                    })
+                    .fail(function () {
+                        toastr.error("An unexpected error occurred.");
+                    });
+
+                    return false;
+                }
+            });
+        });
+
+    </script>
+}

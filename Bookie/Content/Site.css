@@ -1,0 +1,63 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.field-validation-error,
+label.error{
+    color:red;
+}
+.input-validation-error,
+input.error{
+    border:2px solid red;
+}
+
+.footer {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    display: block;
+    color: #fff;
+    background-color: #3E379E;
+}
+
+.copyright {
+    background-color:#1a252f;
+    padding-bottom: 1.5rem;
+    padding-top: 1.5rem;
+    box-sizing: border-box;
+}
+
+h4{
+    color:#fff;
+}
+.text-white{
+    color: #fff;
+}
+
+.icon-github{
+    color:white;
+}
+
+.icon-github:hover {
+    color: dodgerblue;
+}

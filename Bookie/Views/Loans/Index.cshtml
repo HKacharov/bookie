@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Loans";
+}
+
+<h2>Loans</h2>
+@Html.ActionLink("NEW LOAN", "New", "Loans", null, new { @class = "btn btn-primary" })
+<table id="loans" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Customer</th>
+            <th>Book</th>
+            <th>Date Loaned</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            var table = $("#loans").DataTable({
+                ajax: {
+                    url: "/api/loans",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "customerName"
+                    },
+                    {
+                        data: "bookName"
+                    },
+                    {
+                        data: "dateLoaned"
+                    }
+                ]
+            });
+        });
+    </script>
+}
