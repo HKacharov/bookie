@@ -61,4 +61,4 @@
 #*.PDF   diff=astextplain
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
-bookie/Bookie/Scripts/* linguist-vendored
+Bookie/Scripts/* linguist-vendored
