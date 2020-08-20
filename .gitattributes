@@ -62,3 +62,6 @@
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
 Bookie/Scripts/* linguist-vendored
+Bookie/Content/* linguist-vendored
+Bookie/Content/bootstrap-themer.css -linguist-vendored
+Bookie/Content/Site.css -linguist-vendored
