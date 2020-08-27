@@ -32,13 +32,14 @@ h2, .h2 {
 
 .navbar-inverse .navbar-nav > li > a {
     color: #fff;
-    border: 3px solid transparent;
+    border: 2px solid transparent;
     margin:5px;
+    font-size: 15px;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
-    border-color: #fff;
-    /*background-color: #1C5D99;*/
+    border-color: #639FAB;
+    color: #639FAB;
 }
 
 .navbar-inverse .navbar-brand {
