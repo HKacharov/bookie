@@ -37,7 +37,8 @@ input.error{
     padding-bottom: 5rem;
     display: block;
     color: #fff;
-    background-color: #3E379E;
+    background-color: #369FAB;
+    margin-top:50px;
 }
 
 .copyright {
@@ -50,6 +51,9 @@ input.error{
 h4{
     color:#fff;
 }
+.dark {
+    color: #3B4B50;
+}
 .text-white{
     color: #fff;
 }
@@ -60,4 +64,8 @@ h4{
 
 .icon-github:hover {
     color: dodgerblue;
+}
+
+#RememberMe{
+    margin-left:5px;
 }

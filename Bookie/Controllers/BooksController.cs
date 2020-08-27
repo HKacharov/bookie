@@ -27,7 +27,6 @@ namespace Bookie.Controllers
 
         public ActionResult Index()
         {
-            //var books = _context.Books.Include(b => b.Genre).ToList();
             if (User.IsInRole(RoleName.CanManageBooks))
                 return View();
 

@@ -1,5 +1,6 @@
 ﻿body {
     color: #52656B;
+    height:100%;
 }
 
 h1, .h1, h2, .h2, h3, .h3 {
@@ -8,6 +9,11 @@ h1, .h1, h2, .h2, h3, .h3 {
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     color: #3B4B50;
+}
+
+.jumbotron{
+    background-color: #639FAB;
+    color:#fff;
 }
 
 h2, .h2 {
@@ -19,29 +25,30 @@ h2, .h2 {
 }
 
 .navbar-inverse {
-    background-color: #3E379E;
-    border-color: #3E379E;
+    background-color: #222222;
+    border-color: #222222;
     color: #fff;
 }
 
 .navbar-inverse .navbar-nav > li > a {
     color: #fff;
     border: 3px solid transparent;
-    transition: border ease-in-out .15s;
-    padding-bottom: 10px;
+    margin:5px;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
     border-color: #fff;
-    color: #fff;
+    /*background-color: #1C5D99;*/
 }
 
 .navbar-inverse .navbar-brand {
     color: #fff;
+    margin:5px;
+
 }
 
 .navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
-    color: #860D32;
+    color: #1C5D99;
     background-color: transparent;
 }
 
@@ -58,14 +65,13 @@ a, .btn-link {
 
 .btn-primary {
     color: #ffffff;
-    background-color: #52656B;
+    background-color: #222222;
     border: 0;
     padding: 8px 20px;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-    color: #52656B;
-    background-color: #CDFF00;
+    background-color: #1C5D99;
 }
 
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
@@ -101,7 +107,7 @@ table a:not(.btn), .table a:not(.btn) {
 }
 
 .col-lg-4.index {
-    border: 1px solid #C7E32D;
+    border: 1px solid #639FAB;
     margin: 1px;
     border-radius: 10px;
 }
@@ -111,4 +117,13 @@ table a:not(.btn), .table a:not(.btn) {
         width: 33%;
         height: 200px;
     }
+}
+
+.container{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.col-md-offset-2.col-md-10.reg{
+    padding-left:0px;
 }
